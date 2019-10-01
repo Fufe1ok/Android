@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MobileLab</string>
+    <string name="login">Have account? <u><b>Login</b></u></string>
+    <string name="signup">Have not an account?<u><b>Register now</b></u></string>
+    <string name="loginHint">Login</string>
+    <string name="welcoming">Welcome!</string>
+    <string name="out">Sign out</string>
+    <string name="memberText"></string>
+    <string name="accText">Create account</string>
+    <string name="email">Email</string>
+
+</resources>
