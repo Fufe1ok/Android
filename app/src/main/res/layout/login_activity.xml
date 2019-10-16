@@ -31,7 +31,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true">
+                app:errorEnabled="true"
+                app:errorTextAppearance="@color/errColor">
 
                 <EditText
                     android:textColor="@color/inputBack"
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 style="@style/LoginTextInputLayoutStyle"
+                app:errorTextAppearance="@color/errColor">
 
                 >
 

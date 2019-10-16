@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,7 +22,7 @@ public class SignupActivity extends AppCompatActivity {
     static final String nameHint = "Name";
     static final String phoneHint = "Phone";
     static final String passHint = "Password";
-
+    private boolean exit=false;
     private FirebaseAuth auth;
 
     @Override
@@ -121,7 +123,7 @@ public class SignupActivity extends AppCompatActivity {
             nameField.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < LoginActivity.necessaryCount) {
+        if (password.isEmpty() || password.length() < LoginActivity.Necessary_count) {
             passField.setError("At least 8 characters");
             valid = false;
         } else {
@@ -129,5 +131,18 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    public void onBackPressed() {
+        if (exit) {
+            finish();
+            moveTaskToBack(true);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+        }
     }
 }

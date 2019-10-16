@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".LoginActivity"
+    tools:context=".SignupActivity"
     android:background="@color/myRed"
     android:noHistory="true">
 
@@ -28,6 +28,7 @@
                 android:src="@drawable/lock" />
 
             <com.google.android.material.textfield.TextInputLayout
+                app:errorTextAppearance="@color/errColor"
                 android:textColorHint="@color/inputBack"
                 style="@style/LoginTextInputLayoutStyle"
                 android:id="@+id/name_wrapper"
@@ -46,7 +47,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-
+                app:errorTextAppearance="@color/errColor"
                 android:textColorHint="@color/inputBack"
                 style="@style/LoginTextInputLayoutStyle"
                 android:id="@+id/phone_wrapper"
@@ -65,6 +66,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                app:errorTextAppearance="@color/errColor">
                 android:textColorHint="@color/inputBack"
                 style="@style/LoginTextInputLayoutStyle"
                 android:id="@+id/email_wrapper"
@@ -83,6 +85,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                app:errorTextAppearance="@color/errColor">
                 android:textColorHint="@color/inputBack"
                 style="@style/LoginTextInputLayoutStyle"
                 android:id="@+id/pass_wrapper"

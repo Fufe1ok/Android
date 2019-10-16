@@ -5,31 +5,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
+
+
 public class LoginActivity extends AppCompatActivity {
-    public static final int necessaryCount=8;
+    public static final int Necessary_count=8;
     private TextInputLayout emailField;
     private TextInputLayout passField;
+    private Boolean exit = false;
 
     private FirebaseAuth auth;
 
-    public boolean validate(final String email, final String password) {
+    public boolean isValid(final String email, final String password) {
         boolean valid = true;
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailField.setError("Enter a valid email");
+            emailField.setError(getText(R.string.emailError));
             valid = false;
         } else {
             emailField.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < necessaryCount) {
-            passField.setError("At least 8 characters");
+        if (password.isEmpty() || password.length() < Necessary_count) {
+            passField.setError(getText(R.string.passError));
             valid = false;
         } else {
             passField.setError(null);
@@ -47,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         emailField = findViewById(R.id.email_wrapper);
-        emailField.setHint("Email");
+        emailField.setHint(getString(R.string.email));
         passField = findViewById(R.id.pass_wrapper);
-        passField.setHint("Password");
+        passField.setHint(getString(R.string.password));
 
 
         findViewById(R.id.link_signup).setOnClickListener(v -> {
@@ -65,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signIn(final String email, final String pass) {
-        if (!validate(email, pass))
+        if (!isValid(email, pass))
             return;
 
         auth.signInWithEmailAndPassword(email, pass)
@@ -81,8 +85,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void onSignInError() {
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Authentication failed");
-        alertDialog.setMessage("Please check your email and password");
+        alertDialog.setTitle(getString(R.string.authError));
+        alertDialog.setMessage(getString(R.string.checkError));
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 (dialog, which) -> dialog.dismiss());
         alertDialog.show();
@@ -92,6 +96,21 @@ public class LoginActivity extends AppCompatActivity {
 
     private void onSignInSuccess() {
         startActivity(new Intent(this, MainActivity.class));
+
+}
+
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            finish();
+            moveTaskToBack(true);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+        }
     }
 }
 

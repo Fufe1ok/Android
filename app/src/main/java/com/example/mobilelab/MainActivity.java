@@ -1,18 +1,29 @@
 package com.example.mobilelab;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
+    private boolean exit =false;
+    public void onBackPressed() {
+        if (exit) {
+            finish();
+            moveTaskToBack(true);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+        }
+    }
 
     private FirebaseAuth auth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +37,9 @@ public class MainActivity extends AppCompatActivity {
                 welcomeText.setText(String.format("Welcome, %s", username));
             }
         }
-
         findViewById(R.id.btn_signout).setOnClickListener(v -> {
             auth.signOut();
             startActivity(new Intent(this, LoginActivity.class));
         });
     }
-
-
 }

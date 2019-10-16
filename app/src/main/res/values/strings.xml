@@ -8,5 +8,10 @@
     <string name="memberText"></string>
     <string name="accText">Create account</string>
     <string name="email">Email</string>
+    <string name="emailError">Enter a valid email</string>
+    <string name="passError"></string>
+    <string name="password">Password</string>
+    <string name="authError">Authentication failed</string>
+    <string name="checkError">Please check your email and password</string>
 
 </resources>
