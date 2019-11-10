@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MobileLab</string>
+    <string name="login">Have account? <u><b>Login</b></u></string>
+    <string name="signup">Have not an account?<u><b>Register now</b></u></string>
+    <string name="loginHint">Login</string>
+    <string name="welcoming">Welcome!</string>
+    <string name="out">Sign out</string>
+    <string name="memberText"></string>
+    <string name="accText">Create account</string>
+    <string name="email">Email</string>
+    <string name="emailError">Enter a valid email</string>
+    <string name="passError"></string>
+    <string name="password">Password</string>
+    <string name="authError">Authentication failed</string>
+    <string name="checkError">Please check your email and password</string>
+
+</resources>
