@@ -56,9 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         passField.setHint(getString(R.string.password));
 
 
-        findViewById(R.id.link_signup).setOnClickListener(v -> {
-            startActivity(new Intent(this, SignupActivity.class));
-        });
+        findViewById(R.id.link_signup).setOnClickListener(v -> startActivity(new Intent(this, SignupActivity.class)));
         findViewById(R.id.btn_login).setOnClickListener(v -> {
             final String email = Objects.requireNonNull(emailField.getEditText()).getText().toString();
             final String pass = Objects.requireNonNull(passField.getEditText()).getText().toString();
@@ -95,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void onSignInSuccess() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, DataListActivity.class));
 
 }
 
@@ -104,13 +102,13 @@ public class LoginActivity extends AppCompatActivity {
         if (exit) {
             finish();
             moveTaskToBack(true);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 3 * 1000);
+            new Handler().postDelayed(() -> exit = false, 3 * 1000);
         }
     }
+
+    private ApplicationEx getApplicationEx(){
+        return ((ApplicationEx) getApplication());
+    }
+
 }
 
