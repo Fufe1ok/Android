@@ -66,7 +66,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:errorTextAppearance="@color/errColor">
+                app:errorTextAppearance="@color/errColor"
                 android:textColorHint="@color/inputBack"
                 style="@style/LoginTextInputLayoutStyle"
                 android:id="@+id/email_wrapper"
@@ -85,7 +85,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:errorTextAppearance="@color/errColor">
+                app:errorTextAppearance="@color/errColor"
                 android:textColorHint="@color/inputBack"
                 style="@style/LoginTextInputLayoutStyle"
                 android:id="@+id/pass_wrapper"
