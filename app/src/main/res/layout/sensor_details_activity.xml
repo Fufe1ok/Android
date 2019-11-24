@@ -23,33 +23,33 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:paddingTop="36dp"
-        android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+        android:textColor="@color/colorPrimaryDark" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_details_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+        android:textColor="@color/colorPrimaryDark" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_details_purpose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+        android:textColor="@color/colorPrimaryDark" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_details_manufacturer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+        android:textColor="@color/colorPrimaryDark" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_details_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+        android:textColor="@color/colorPrimaryDark" />
 </LinearLayout>

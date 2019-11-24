@@ -9,7 +9,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/fragment_sample_text_view"
         android:text="@string/tab2"
+        android:textColor="#fafafa"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
-        android:textSize="24sp"></TextView>
+        android:textSize="24sp" />
 </LinearLayout>

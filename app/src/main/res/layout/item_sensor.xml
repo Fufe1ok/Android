@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#fafafa"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
@@ -22,7 +23,7 @@
                 android:id="@+id/item_sensor_image_view"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:contentDescription="@string/sensor_type"></ImageView>
+                android:contentDescription="@string/sensor_type" />
         </LinearLayout>
 
         <LinearLayout
@@ -37,35 +38,35 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 tools:ignore="NestedWeights"
-                android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+                android:textColor="@color/colorPrimaryDark" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_sensor_year"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+                android:textColor="@color/colorPrimaryDark" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_sensor_purpose"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+                android:textColor="@color/colorPrimaryDark" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_sensor_manufacturer"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+                android:textColor="@color/colorPrimaryDark" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_sensor_price"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"></com.google.android.material.textview.MaterialTextView>
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
     </LinearLayout>
