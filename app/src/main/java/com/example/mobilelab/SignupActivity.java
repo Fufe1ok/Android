@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
             user.updateProfile(profileUpdates)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(this, MainActivity.class));
+                            startActivity(new Intent(this, DataListActivity.class));
                         }
                     });
         }
@@ -145,4 +145,8 @@ public class SignupActivity extends AppCompatActivity {
             }, 3 * 1000);
         }
     }
+    private ApplicationEx getApplicationEx(){
+        return ((ApplicationEx) getApplication());
+    }
+
 }
