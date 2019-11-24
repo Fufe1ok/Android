@@ -1,15 +1,17 @@
 package com.example.mobilelab;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+
 import java.util.Objects;
 
 public class SignupActivity extends AppCompatActivity {
@@ -22,7 +24,7 @@ public class SignupActivity extends AppCompatActivity {
     static final String nameHint = "Name";
     static final String phoneHint = "Phone";
     static final String passHint = "Password";
-    private boolean exit=false;
+    private boolean exit = false;
     private FirebaseAuth auth;
 
     @Override
@@ -84,7 +86,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
 
-
     private void initFields() {
         emailField = findViewById(R.id.email_wrapper);
         nameField = findViewById(R.id.name_wrapper);
@@ -116,7 +117,7 @@ public class SignupActivity extends AppCompatActivity {
             phoneField.setError(null);
         }
 
-        if (!name.matches (regName)) {
+        if (!name.matches(regName)) {
             nameField.setError("Enter a real name, please");
             valid = false;
         } else {
@@ -145,7 +146,8 @@ public class SignupActivity extends AppCompatActivity {
             }, 3 * 1000);
         }
     }
-    private ApplicationEx getApplicationEx(){
+
+    private ApplicationEx getApplicationEx() {
         return ((ApplicationEx) getApplication());
     }
 

@@ -10,7 +10,7 @@ public class Sensor {
     private final String photoUrl;
 
     public Sensor(final String name, final String year, final String purpose,
-                 final String manufacturer, final String price, final String photoUrl) {
+                  final String manufacturer, final String price, final String photoUrl) {
         this.name = name;
         this.year = year;
         this.purpose = purpose;

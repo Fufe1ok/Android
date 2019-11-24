@@ -12,22 +12,21 @@ public class ApplicationEx extends Application {
     private ApiService apiService;
     private FirebaseAuth auth;
 
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         auth = FirebaseAuth.getInstance();
         apiService = createApiService();
     }
 
-    public FirebaseAuth getAuth(){
+    public FirebaseAuth getAuth() {
         return auth;
     }
 
-    public ApiService getApiService(){
+    public ApiService getApiService() {
         return apiService;
     }
 
-    private ApiService createApiService(){
+    private ApiService createApiService() {
         final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://us-central1-myapp-3e574.cloudfunctions.net/sensors/")
                 .addConverterFactory(GsonConverterFactory.create())
