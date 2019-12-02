@@ -23,23 +23,23 @@ public class Sensor {
         return name;
     }
 
-    public String getYear() {
+    String getYear() {
         return year;
     }
 
-    public String getPurpose() {
+    String getPurpose() {
         return purpose;
     }
 
-    public String getManufacturer() {
+    String getManufacturer() {
         return manufacturer;
     }
 
-    public String getPrice() {
+    String getPrice() {
         return price;
     }
 
-    public String getPhotoUrl() {
+    String getPhotoUrl() {
         return photoUrl;
     }
 }

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(tabsAdapter);
 
-        final String[] tabTitles = new String[]{"Panels", "Tab 2", "Profile"};
+        final String[] tabTitles = new String[]{"Panels", "Tab 2", "ProfileFragment"};
         final TabLayout tabLayout = findViewById(R.id.main_activity_tab_layout);
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> tab.setText(tabTitles[position])

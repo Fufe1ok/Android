@@ -14,7 +14,7 @@ import java.util.Objects;
 
 
 public class LoginActivity extends AppCompatActivity {
-    public static final int Necessary_count = 8;
+    public static final int NECESSARY_COUNT = 8;
     private TextInputLayout emailField;
     private TextInputLayout passField;
     private Boolean exit = false;
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
             emailField.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < Necessary_count) {
+        if (password.isEmpty() || password.length() < NECESSARY_COUNT) {
             passField.setError(getText(R.string.passError));
             valid = false;
         } else {

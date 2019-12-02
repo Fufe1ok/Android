@@ -13,13 +13,13 @@ public class TabsAdapter extends FragmentStateAdapter {
 
     private static final List<Fragment> FRAGMENTS = new ArrayList<Fragment>() {
         {
-            add(new DataListActivity());
+            add(new DataListFragment());
             add(new Sample());
-            add(new Profile());
+            add(new ProfileFragment());
         }
     };
 
-    public TabsAdapter(final FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+    TabsAdapter(final FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
 

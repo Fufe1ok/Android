@@ -70,7 +70,7 @@ public class SignupActivity extends AppCompatActivity {
             user.updateProfile(profileUpdates)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(this, DataListActivity.class));
+                            startActivity(new Intent(this, DataListFragment.class));
                         }
                     });
         }
@@ -124,7 +124,7 @@ public class SignupActivity extends AppCompatActivity {
             nameField.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < LoginActivity.Necessary_count) {
+        if (password.isEmpty() || password.length() < LoginActivity.NECESSARY_COUNT) {
             passField.setError("At least 8 characters");
             valid = false;
         } else {
@@ -138,12 +138,7 @@ public class SignupActivity extends AppCompatActivity {
         if (exit) {
             finish();
             moveTaskToBack(true);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 3 * 1000);
+            new Handler().postDelayed(() -> exit = false, 3 * 1000);
         }
     }
 

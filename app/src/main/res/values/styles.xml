@@ -17,6 +17,9 @@
     <style name="LoginTextInputLayoutStyle1" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">#000000</item>
         <item name="boxStrokeWidth">2dp</item>
+        <item name="helperTextTextColor">#fafafa</item>
+        <item name="android:textColor">#fafafa</item>
+        <item name="counterTextColor">#fafafa</item>
     </style>
 
 </resources>

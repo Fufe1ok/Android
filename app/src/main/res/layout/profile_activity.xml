@@ -69,6 +69,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_profile_layout_new_username"
         android:textColorHint="@color/inputBack"
+        android:textColor="#fafafa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
