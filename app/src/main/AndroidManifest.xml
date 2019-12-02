@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mobilelab">
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -15,40 +14,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+        <activity android:name=".LoginActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-        <activity
-            android:name=".SensorDetails"
-            android:label="Details" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+
         <activity android:name=".SignupActivity" />
         <activity
-            android:name=".DataListFragment"
+            android:name=".DataListActivity"
             android:label="Sensors"
-            android:noHistory="true" />
+            android:noHistory="true"/>
 
-        <receiver android:name=".NetworkChangeReceiver">
+
+        <receiver android:name=".NetworkChangeReceiver" >
             <intent-filter>
-                <action
-                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
                     tools:ignore="BatteryLife" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

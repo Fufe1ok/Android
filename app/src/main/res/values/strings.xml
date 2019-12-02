@@ -16,17 +16,5 @@
     <string name="no_internet">No Internet connection</string>
     <string name="failure">Update failure</string>
     <string name="sensor_name">Sensor name</string>
-    <string name="profile_picture">Profile picture</string>
-    <string name="update">Update</string>
-    <string name="enter_new_email">Enter new email</string>
-    <string name="enter_new_username">Enter new username</string>
-    <string name="logout">Log Out</string>
-    <string name="tab2">Tab #2</string>
-    <string name="sensor_type">Sensor type</string>
-    <string name="error">Error</string>
-    <string name="image_uploaded">Your image is uploaded</string>
-    <string name="username_updated">Username updated</string>
-    <string name="email_updated">Email updated</string>
-    <string name="enter_username">Enter usename, please</string>
-    <string name="enter_valid_email">Enter valid email</string>
+
 </resources>

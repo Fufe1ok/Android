@@ -10,7 +10,7 @@ public class Sensor {
     private final String photoUrl;
 
     public Sensor(final String name, final String year, final String purpose,
-                  final String manufacturer, final String price, final String photoUrl) {
+                 final String manufacturer, final String price, final String photoUrl) {
         this.name = name;
         this.year = year;
         this.purpose = purpose;
@@ -23,23 +23,23 @@ public class Sensor {
         return name;
     }
 
-    String getYear() {
+    public String getYear() {
         return year;
     }
 
-    String getPurpose() {
+    public String getPurpose() {
         return purpose;
     }
 
-    String getManufacturer() {
+    public String getManufacturer() {
         return manufacturer;
     }
 
-    String getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    String getPhotoUrl() {
+    public String getPhotoUrl() {
         return photoUrl;
     }
 }
