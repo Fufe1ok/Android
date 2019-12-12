@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    tools:context=".ProfileFragment"
     android:paddingLeft="24dp"
     android:background="@color/myRed"
     android:paddingRight="24dp">
@@ -46,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
-        style="@style/LoginTextInputLayoutStyle1"
+
         app:errorTextAppearance="@color/errColor"
         android:hint="@string/enter_new_email">
 
@@ -73,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
-        style="@style/LoginTextInputLayoutStyle1"
+
         app:errorTextAppearance="@color/errColor"
         android:hint="@string/enter_new_username">
 

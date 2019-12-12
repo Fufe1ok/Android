@@ -63,12 +63,9 @@ public class DataListActivity extends Fragment {
 
     private void setupSwipeToRefresh() {
         swipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        loadSensors();
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
+                () -> {
+                    loadSensors();
+                    swipeRefreshLayout.setRefreshing(false);
                 }
         );
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
