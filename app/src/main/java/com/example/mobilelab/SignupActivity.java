@@ -1,15 +1,17 @@
 package com.example.mobilelab;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+
 import java.util.Objects;
 
 public class SignupActivity extends AppCompatActivity {
@@ -22,7 +24,7 @@ public class SignupActivity extends AppCompatActivity {
     static final String nameHint = "Name";
     static final String phoneHint = "Phone";
     static final String passHint = "Password";
-    private boolean exit=false;
+    private boolean exit = false;
     private FirebaseAuth auth;
 
     @Override
@@ -68,7 +70,7 @@ public class SignupActivity extends AppCompatActivity {
             user.updateProfile(profileUpdates)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(this, DataListActivity.class));
+                            startActivity(new Intent(this, DataListFragment.class));
                         }
                     });
         }
@@ -82,7 +84,6 @@ public class SignupActivity extends AppCompatActivity {
                 (dialog, which) -> dialog.dismiss());
         alertDialog.show();
     }
-
 
 
     private void initFields() {
@@ -116,14 +117,14 @@ public class SignupActivity extends AppCompatActivity {
             phoneField.setError(null);
         }
 
-        if (!name.matches (regName)) {
+        if (!name.matches(regName)) {
             nameField.setError("Enter a real name, please");
             valid = false;
         } else {
             nameField.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < LoginActivity.Necessary_count) {
+        if (password.isEmpty() || password.length() < LoginActivity.NECESSARY_COUNT) {
             passField.setError("At least 8 characters");
             valid = false;
         } else {
@@ -137,15 +138,11 @@ public class SignupActivity extends AppCompatActivity {
         if (exit) {
             finish();
             moveTaskToBack(true);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 3 * 1000);
+            new Handler().postDelayed(() -> exit = false, 3 * 1000);
         }
     }
-    private ApplicationEx getApplicationEx(){
+
+    private ApplicationEx getApplicationEx() {
         return ((ApplicationEx) getApplication());
     }
 

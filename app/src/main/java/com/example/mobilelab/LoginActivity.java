@@ -1,11 +1,11 @@
 package com.example.mobilelab;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,9 +13,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
 
 
-
 public class LoginActivity extends AppCompatActivity {
-    public static final int Necessary_count=8;
+    public static final int NECESSARY_COUNT = 8;
     private TextInputLayout emailField;
     private TextInputLayout passField;
     private Boolean exit = false;
@@ -32,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
             emailField.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < Necessary_count) {
+        if (password.isEmpty() || password.length() < NECESSARY_COUNT) {
             passField.setError(getText(R.string.passError));
             valid = false;
         } else {
@@ -80,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     private void onSignInError() {
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(getString(R.string.authError));
@@ -91,11 +89,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     private void onSignInSuccess() {
-        startActivity(new Intent(this, DataListActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
 
-}
+    }
 
     @Override
     public void onBackPressed() {
@@ -106,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private ApplicationEx getApplicationEx(){
+    private ApplicationEx getApplicationEx() {
         return ((ApplicationEx) getApplication());
     }
 

@@ -1,56 +1,80 @@
 package com.example.mobilelab;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.content.IntentFilter;
-import android.os.Bundle;
-import android.widget.LinearLayout;
-
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DataListActivity extends AppCompatActivity {
+public class DataListActivity extends Fragment {
 
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private LinearLayout linearLayout;
     private SensorAdapter adapter;
 
+    public DataListActivity() {
+    }
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_list);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_data_list, container, false);
+    }
 
-        initViews();
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        initViews(Objects.requireNonNull(getView()));
         registerNetworkMonitoring();
-        loadSensor();
-
+        loadSensors();
     }
 
     private void registerNetworkMonitoring() {
         IntentFilter filter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
         NetworkChangeReceiver receiver = new NetworkChangeReceiver(linearLayout);
-        this.registerReceiver(receiver, filter);
+        Objects.requireNonNull(getActivity()).registerReceiver(receiver, filter);
     }
 
-    private void initViews(){
-        recyclerView = findViewById(R.id.data_list_recycler_view);
+    private void initViews(View root) {
+        recyclerView = root.findViewById(R.id.data_list_recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        linearLayout = findViewById(R.id.linearLayout);
-        swipeRefreshLayout = findViewById(R.id.data_list_swipe_refresh);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        linearLayout = root.findViewById(R.id.linearLayout);
+        swipeRefreshLayout = root.findViewById(R.id.data_list_swipe_refresh);
         setupSwipeToRefresh();
     }
 
-    private void loadSensor(){
+    private void setupSwipeToRefresh() {
+        swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        loadSensors();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+        );
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+    }
+
+    private void loadSensors() {
         swipeRefreshLayout.setRefreshing(true);
         final ApiService apiService = getApplicationEx().getApiService();
         final Call<List<Sensor>> call = apiService.getSensors();
@@ -59,7 +83,7 @@ public class DataListActivity extends AppCompatActivity {
             @Override
             public void onResponse(final Call<List<Sensor>> call,
                                    final Response<List<Sensor>> response) {
-                adapter = new SensorAdapter(response.body());
+                adapter = new SensorAdapter(getActivity(), response.body());
                 recyclerView.setAdapter(adapter);
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -71,20 +95,7 @@ public class DataListActivity extends AppCompatActivity {
         });
     }
 
-    private void setupSwipeToRefresh(){
-        swipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        loadSensor();
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
-                }
-        );
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-    }
-
-    private ApplicationEx getApplicationEx(){
-        return ((ApplicationEx) getApplication());
+    private ApplicationEx getApplicationEx() {
+        return ((ApplicationEx) Objects.requireNonNull(getActivity()).getApplication());
     }
 }
