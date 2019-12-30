@@ -1,7 +1,6 @@
 package com.example.mobilelab;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +24,8 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorView
     public SensorAdapter(FragmentActivity activity, List<Sensor> sensorList) {
         this.sensorList = sensorList;
     }
+
+
 
     @NonNull
     @Override
@@ -68,18 +70,6 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorView
             manufacturer = itemView.findViewById(R.id.item_sensor_manufacturer);
             price = itemView.findViewById(R.id.item_sensor_price);
         }
-    }
-
-    private void openItemDetails(int position) {
-        Intent intent = new Intent(context, SensorDetails.class);
-        intent.putExtra("sensor_name", sensorList.get(position).getName());
-        intent.putExtra("year", sensorList.get(position).getYear());
-        intent.putExtra("purpose", sensorList.get(position).getPurpose());
-        intent.putExtra("manufacturer", sensorList.get(position).getManufacturer());
-        intent.putExtra("price", sensorList.get(position).getPrice());
-        intent.putExtra("image", sensorList.get(position).getPhotoUrl());
-
-        context.startActivity(intent);
     }
 
 }

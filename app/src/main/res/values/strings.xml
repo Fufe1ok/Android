@@ -29,4 +29,10 @@
     <string name="email_updated">Email updated</string>
     <string name="enter_username">Enter usename, please</string>
     <string name="enter_valid_email">Enter valid email</string>
+    <string name="msg_token_fmt">InstanceID Token: %s</string>
+
+    <string name="default_notification_channel_name">Sensor</string>
+    <string name="msg_subscribed">Subscribed to weather topic</string>
+    <string name="msg_subscribe_failed">Failed</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 </resources>
